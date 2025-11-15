@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>7̷7̷7̷ ̷B̷R̷I̷G̷A̷D̷E̷</title>
+  <link rel="icon" href="https://files.catbox.moe/eyje9b.png" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+      color: white;
+      font-family: "Courier New", monospace;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    #enter-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: opacity 1s ease;
+    }
+
+    #enter-overlay.fade-out {
+      opacity: 0;
+    }
+
+    #enter-overlay h1 {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: normal;
+      font-family: "Courier New", monospace;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .swing-wrapper {
+      display: inline-block;
+      animation: swing 4s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    .swing {
+  width: 300px;
+  z-index: 1;
+  position: relative;
+}
+
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(4deg); }
+      50% { transform: rotate(-4deg); }
+      75% { transform: rotate(4deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      text-align: center;
+      white-space: pre;
+    }
+
+    h2 {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 1rem auto;
+      text-align: center;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .discord {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .discord a {
+      display: inline-block;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .discord a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Snow effect */
+    .snowflake {
+      position: fixed;
+      top: 0;
+      color: white;
+      font-size: 10px;
+      pointer-events: none;
+      user-select: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div id="enter-overlay">
+    <h1>Click to Enter</h1>
+  </div>
+
+  <header>
+    <div class="swing-wrapper">
+      <img src="https://files.catbox.moe/obef1o.webp" class="swing" alt="logo">
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>7̷7̷7̷ ̷B̷R̷I̷G̷A̷D̷E̷</h1>
+    <h2>End it all in one command</h2>
+
+    <ul>
+      <li>ne0ngutz (owner)</li>
+      <li>itsnotskeleton</li>
+      <li>Atomiser</li>
+      <li>latebroker</li>
+      <li>divided</li>
+      <li>Black Cat</li>
+      <li>Kenny</li>
+    </ul>
+
+    <div class="discord">
+      <a href="https://discord.gg/TndYFXHBbP" target="_blank">Join our Discord</a>
+    </div>
+
+    <footer>
+      <p>© 2025 7̷7̷7̷ ̷B̷R̷I̷G̷A̷D̷E̷. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <audio id="background-music" src="https://files.catbox.moe/rp40h7.mp3" loop></audio>
+
+  <script>
+    document.getElementById('enter-overlay').addEventListener('click', function() {
+      this.classList.add('fade-out');
+      const audio = document.getElementById('background-music');
+      audio.play();
+      setTimeout(() => this.remove(), 1000);
+    });
+
+    // snow
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '•';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = 8 + Math.random() * 6 + 'px';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
+</html>
